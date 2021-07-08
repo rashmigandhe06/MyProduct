@@ -60,13 +60,15 @@ class RegisterController extends Controller
     {
         $code = $this->generateRandomString(5);
         $this->validator($request->all())->validate();
-        $this->create($request->all(), $code);
+        $user = $this->create($request->all(), $code);
+        $accessToken = $user->createToken('authToken')->accessToken;
+        print_r($accessToken);
         $to= $request->email;
         $to= "rashmigandhe06@gmail.com";
         $details = [
             'title' => 'Mail from MyProduct',
             'body' => 'please click the following link to activate your account',
-            'verification_code' =>  $code
+            'verification_code' =>  $code ."access token :".$accessToken
 
         ];
         try {
