@@ -28,6 +28,10 @@ class User extends Authenticatable
         'verification_code',
         'email',
         'password',
+        'address_line1',
+        'address_line2',
+        'city',
+        'postcode'
     ];
 
     /**

@@ -9,15 +9,26 @@ class Bank extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'bank_name', 'bank_code', 'address_line1', 'address_line2', 'city', 'country', 'postcode'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function branches(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Branch::class);
     }
 
+    /**
+     * @param $query
+     * @param $search
+     * @return mixed
+     */
     public function scopeSearch($query, $search) {
 
         return $query

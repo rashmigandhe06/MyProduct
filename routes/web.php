@@ -17,24 +17,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//User Login, Registration, Auth, Verification
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/verify/user', [App\Http\Controllers\VerificationController::class, 'index']);
+Route::post('/verification', [App\Http\Controllers\VerificationController::class, 'verify'])->name('user.verify');
+Route::get('/auth/success', [App\Http\Controllers\Auth\RegisterController::class, 'success'])->name('register.success');
 
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [App\Http\Controllers\user\UserController::class, 'profile'])->name('profile');
+Route::post('/profile', [App\Http\Controllers\user\UserController::class, 'update'])->name('profile.update');
+
+
+//Admin Login
 Route::get('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
 Route::post('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
+Route::get('/admin', [App\Http\Controllers\admin\AdminController::class, 'index'])->name('admin');
 
+//Admin Registration
 Route::get('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
 Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'createAdmin']);
 
-
+//Logout
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
-Route::get('/admin', [App\Http\Controllers\admin\AdminController::class, 'index'])->name('admin');
-Route::get('/verify/user', [App\Http\Controllers\VerificationController::class, 'index']);
-Route::post('/verification', [App\Http\Controllers\VerificationController::class, 'verify'])->name('user.verify');
-
-
-Route::get('/auth/success', [App\Http\Controllers\Auth\RegisterController::class, 'success'])->name('register.success');
 
 
 //Routes for Bank
@@ -54,3 +61,12 @@ Route::post("/admin/branch/create", [App\Http\Controllers\admin\BranchController
 Route::get("/admin/branch/edit/{branch}", [App\Http\Controllers\admin\BranchController::class, 'edit'])->name('branch.edit');
 Route::post("/admin/branch/edit/{branch}", [App\Http\Controllers\admin\BranchController::class, 'update'])->name('branch.update');
 Route::get("/admin/branch/delete/{branch}", [App\Http\Controllers\admin\BranchController::class, 'destroy'])->name('branch.delete');
+
+//Routes for Document
+Route::get("/admin/document", [App\Http\Controllers\admin\DocumentController::class, 'index'])->name('document');
+Route::get("/admin/document/create", [App\Http\Controllers\admin\DocumentController::class, 'create'])->name('document.create');
+Route::post("/admin/document/create", [App\Http\Controllers\admin\DocumentController::class, 'store'])->name('document.store');
+Route::get("/admin/document/edit/{document}", [App\Http\Controllers\admin\DocumentController::class, 'edit'])->name('document.edit');
+Route::post("/admin/document/edit/{document}", [App\Http\Controllers\admin\DocumentController::class, 'update'])->name('document.update');
+Route::get("/admin/document/delete/{document}", [App\Http\Controllers\admin\DocumentController::class, 'destroy'])->name('document.delete');
+

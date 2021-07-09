@@ -36,7 +36,7 @@ class RegisterController extends Controller
      * @var string
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -45,7 +45,6 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        ini_set('memory_limit', '1024M'); // or you could use 1G
         $this->middleware('guest');
         $this->middleware('guest:admin');
     }

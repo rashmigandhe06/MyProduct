@@ -6,6 +6,9 @@
         </li>
         <li><a href="{{ route('branch') }}"><i class="menu-icon icon-bullhorn"></i>Branches </a>
         </li>
+        <li><a href="{{ route('document') }}"><i class="menu-icon icon-bullhorn"></i>Documents </a>
+        </li>
+
 
     </ul>
     <!--/.widget-nav-->

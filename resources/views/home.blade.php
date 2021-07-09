@@ -9,5 +9,5 @@
         </div>
     @endif
 
-    {{ __('You are logged in!') }} {{ auth()->user()->name }}
+    {{ __('You are logged in!') }}
 @endsection

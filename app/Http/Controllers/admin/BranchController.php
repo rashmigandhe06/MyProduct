@@ -7,6 +7,9 @@ use App\Models\Branch;
 use App\Models\Bank;
 use Illuminate\Http\Request;
 use Monarobase\CountryList\CountryListFacade;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class BranchController extends Controller
 {
@@ -25,14 +28,23 @@ class BranchController extends Controller
      */
     public function index(Request $request)
     {
+        $search = $request->input('search');
         $bank_id= $request->get('bank_id');
+
+
+        $limit=4;
+        $num  = num_rows($request->input('page'), $limit);
 
         if($bank_id!="") {
             $bank = Bank::find($bank_id);
             $branches = $bank->branches;
+            $branches = $this->paginate($branches, $limit);
+
         }
          else{
-            $branches = Branch::all();
+              $branches = $search?
+                 Branch::search($search)
+                 : Branch::paginate($limit);
          }
 
         $data = [
@@ -40,6 +52,18 @@ class BranchController extends Controller
         ];
 
         return view('admin.branch.index')->with($data);
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 
     /**
