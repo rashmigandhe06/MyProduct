@@ -19,7 +19,7 @@
                 </div>
             </form>
         </div>
-        <div class="pull-right"><a href="{{route('document.create')}}" class="btn btn-primary">Create Document</a></div>
+        <div class="pull-right"><a href="{{route('document.create')}}" class="btn btn-success">Create Document</a></div>
     </div>
 
     <div class="module-body table">
@@ -47,8 +47,8 @@
                     <td>{{$document->is_required}}</td>
 
                     <td class="center">
-                        <div class="margin-val"><a href="{{route('document.edit', array($document))}}" class="btn btn-primary">Edit</a></div>
-                        <div class="margin-val"><a href="{{route('document.delete', array($document))}}" class="btn btn-danger">Delete</a></div>
+                        <div class="margin-val"><a href="{{route('document.edit', array($document))}}" class="btn btn-xs btn-primary">Edit</a></div>
+                        <div class="margin-val"><a href="{{route('document.delete', array($document))}}" class="btn btn-xs btn-danger">Delete</a></div>
                     </td>
 
                 </tr>

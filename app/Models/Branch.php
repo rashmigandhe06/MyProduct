@@ -14,7 +14,7 @@ class Branch extends Model
      * @var string[]
      */
     protected $fillable = [
-        'bank_id', 'branch_code', 'address_line1', 'address_line2', 'city', 'country', 'postcode'
+        'bank_id', 'branch_code', 'sort_code', 'address_line1', 'address_line2', 'city', 'country', 'postcode'
     ];
 
     /**

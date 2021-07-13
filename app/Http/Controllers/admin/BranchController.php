@@ -110,11 +110,8 @@ class BranchController extends Controller
         return [
             'bank_id' => ['required'],
             'branch_code' => ['required', 'unique:branches,branch_code' . $str],
-            'address_line1' => ['required'],
-            'address_line2' => 'required',
-            'city' => ['required', 'max:30'],
+            'sort_code' => ['required'],
             'country' => ['required', 'max:3'],
-            'postcode' => ['required'],
         ];
 
     }

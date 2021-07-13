@@ -84,7 +84,7 @@
         @endif
 
         <div class="control-group">
-            <label class="control-label" for="phone_no">Image</label>
+            <label class="control-label" for="image_url">Image</label>
 
             <div class="controls">
                 <input class="span8" id="image_url" type="file"

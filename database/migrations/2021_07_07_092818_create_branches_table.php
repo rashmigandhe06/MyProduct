@@ -15,17 +15,17 @@ class CreateBranchesTable extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('bank_id')->constrained('banks');
+            $table->foreignId('bank_id')->constrained('banks')->onDelete('cascade');
             $table->string('branch_code')->unique();
-            $table->string('address_line1');
-            $table->string('address_line2');
-            $table->string('city');
-            $table->string('country');
-            $table->string('postcode');
+            $table->string('sort_code')->unique();
+            $table->string('address_line1')->nullable();
+            $table->string('address_line2')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('postcode')->nullable();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

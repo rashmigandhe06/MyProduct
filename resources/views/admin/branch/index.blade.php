@@ -19,7 +19,7 @@
                 </div>
             </form>
         </div>
-        <div class="pull-right"><a href="{{route('branch.create')}}" class="btn btn-primary">Create Branch</a></div>
+        <div class="pull-right"><a href="{{route('branch.create')}}" class="btn btn-success">Create Branch</a></div>
     </div>
 
     <div class="module-body table">
@@ -30,6 +30,7 @@
                 <th>Sr.No</th>
                 <th>Bank Name</th>
                 <th>Branch Code</th>
+                <th>SORT Code</th>
                 <th>Address</th>
                 <th>Country</th>
                 <th>Postcode</th>
@@ -48,12 +49,13 @@
                     <td>{{$counter}}</td>
                     <td>{{$branch->bank->bank_name}}</td>
                     <td>{{$branch->branch_code}}</td>
+                    <td>{{$branch->sort_code}}</td>
                     <td>{{$branch->address_line1}} {{$branch->address_line2}}, {{$branch->city}}</td>
                     <td class="center">{{$branch->country}}</td>
                     <td class="center">{{$branch->postcode}}</td>
                     <td class="center">
-                        <div class="margin-val"><a href="{{route('branch.edit', array($branch))}}" class="btn btn-primary">Edit</a></div>
-                        <div class="margin-val"><a href="{{route('branch.delete', array($branch))}}" class="btn btn-danger">Delete</a></div>
+                        <div class="margin-val"><a href="{{route('branch.edit', array($branch))}}" class="btn btn-xs btn-primary">Edit</a></div>
+                       <!-- <div class="margin-val"><a href="{{route('branch.delete', array($branch))}}" class="btn btn-xs btn-danger">Delete</a></div>-->
                     </td>
                 </tr>
             @empty

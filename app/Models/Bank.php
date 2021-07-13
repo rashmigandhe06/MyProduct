@@ -13,7 +13,7 @@ class Bank extends Model
      * @var string[]
      */
     protected $fillable = [
-        'bank_name', 'bank_code', 'address_line1', 'address_line2', 'city', 'country', 'postcode'
+        'bank_name', 'bank_code', 'address_line1', 'address_line2', 'city', 'country', 'postcode', 'logo_uri'
     ];
 
     /**
@@ -22,6 +22,11 @@ class Bank extends Model
     public function branches(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Branch::class);
+    }
+
+    public function accounts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Account::class);
     }
 
     /**

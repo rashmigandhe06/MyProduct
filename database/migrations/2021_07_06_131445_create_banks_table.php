@@ -15,13 +15,14 @@ class CreateBanksTable extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->string('bank_name')->unique();
+            $table->string('bank_name');
             $table->string('bank_code')->unique();
-            $table->string('address_line1');
-            $table->string('address_line2');
-            $table->string('city');
-            $table->string('country');
-            $table->string('postcode');
+            $table->string('logo_uri')->nullable();
+            $table->string('address_line1')->nullable();
+            $table->string('address_line2')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('postcode')->nullable();
             $table->timestamps();
         });
     }

@@ -8,11 +8,11 @@
 <div class="wrapper">
     <div class="container">
         <div class="row">
-            <div class="span3">
+            <div class="span2">
                 @include('partials.sidebar')
             </div>
             <!--/.span3-->
-            <div class="span9">
+            <div class="span10">
                 <div class="content">
 
                     <div class="module">

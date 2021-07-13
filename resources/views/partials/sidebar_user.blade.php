@@ -4,11 +4,17 @@
             </a></li>
         <li><a href="{{route('profile')}}"><i class="menu-icon icon-bullhorn"></i>My Profile</a>
         </li>
+        <li><a href="{{route('user.document')}}"><i class="menu-icon icon-bullhorn"></i>My Documents</a>
+        </li>
+        <li><a href="{{route('bank.connect')}}"><i class="menu-icon icon-bullhorn"></i>Connect</a>
+        </li>
+        <li><a href="{{route('bank.account')}}"><i class="menu-icon icon-bullhorn"></i>Accounts</a>
+        </li>
 
-        <li><a href="message.html"><i class="menu-icon icon-inbox"></i>Inbox <b class="label green pull-right">
-                    11</b> </a></li>
-        <li><a href="task.html"><i class="menu-icon icon-tasks"></i>Tasks <b class="label orange pull-right">
-                    19</b> </a></li>
+
+
+
+
     </ul>
     <!--/.widget-nav-->
 

@@ -44,17 +44,27 @@
         </div>
 
         <div class="control-group">
+            <label class="control-label" for="sort_code">SORT Code</label>
+            <div class="controls">
+                <input class="span8" placeholder="SORT Code" id="sort_code" type="text"
+                       class="form-control @error('sort_code') is-invalid @enderror" name="branch_code"
+                       value="{{ $branch->sort_code }}" required autocomplete="sort_code" autofocus>
+
+                @error('sort_code')
+                <span class="help-inline" role="alert">
+                                  <strong class="text-danger">{{ $message }}</strong>
+                                </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="control-group">
             <label class="control-label" for="address_line1">Address Line 1</label>
             <div class="controls">
                 <input class="span8" placeholder="Address Line 1" id="address_line1" type="text"
                        class="form-control @error('address_line1') is-invalid @enderror" name="address_line1"
-                       value="{{ $branch->address_line1 }}" required autocomplete="address_line1" autofocus>
+                       value="{{ $branch->address_line1 }}"  autocomplete="address_line1" autofocus>
 
-                @error('address_line1')
-                <span class="help-inline" role="alert">
-                                      <strong class="text-danger">{{ $message }}</strong>
-                                    </span>
-                @enderror
             </div>
         </div>
 
@@ -63,13 +73,8 @@
             <div class="controls">
                 <input class="span8" placeholder="Address Line 2" id="address_line2" type="text"
                        class="form-control @error('address_line2') is-invalid @enderror" name="address_line2"
-                       value="{{ $branch->address_line2 }}" required autocomplete="address_line2" autofocus>
+                       value="{{ $branch->address_line2 }}"  autocomplete="address_line2" autofocus>
 
-                @error('address_line2')
-                <span class="help-inline" role="alert">
-                                          <strong class="text-danger">{{ $message }}</strong>
-                                        </span>
-                @enderror
             </div>
         </div>
 
@@ -78,13 +83,8 @@
             <div class="controls">
                 <input class="span8" placeholder="City" id="city" type="text"
                        class="form-control @error('city') is-invalid @enderror" name="city"
-                       value="{{ $branch->city }}" required autocomplete="city" autofocus>
+                       value="{{ $branch->city }}"  autocomplete="city" autofocus>
 
-                @error('city')
-                <span class="help-inline" role="alert">
-                             <strong class="text-danger">{{ $message }}</strong>
-                           </span>
-                @enderror
             </div>
         </div>
 
@@ -112,13 +112,8 @@
             <div class="controls">
                 <input class="span8" placeholder="PostCode" id="postcode" type="text"
                        class="form-control @error('postcode') is-invalid @enderror" name="postcode"
-                       value="{{ $branch->postcode }}" required autocomplete="postcode" autofocus>
+                       value="{{ $branch->postcode }}"  autocomplete="postcode" autofocus>
 
-                @error('postcode')
-                <span class="help-inline" role="alert">
-                                     <strong class="text-danger">{{ $message }}</strong>
-                                   </span>
-                @enderror
             </div>
         </div>
 

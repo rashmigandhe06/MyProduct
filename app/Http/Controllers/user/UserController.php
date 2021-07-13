@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+
 use Monarobase\CountryList\CountryListFacade;
 use App\Rules\NationalInsuranceNumberRule;
 
@@ -19,8 +20,9 @@ class UserController extends Controller
     }
 
     public function profile(Request $request){
+
         $countries = CountryListFacade::getList('en');
-  
+
         $user = auth()->user();
         $data =[
             'details' => $user,

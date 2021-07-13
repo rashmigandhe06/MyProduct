@@ -78,12 +78,8 @@ class BankController extends Controller
         return [
             'bank_name' => ['required', 'unique:banks,bank_name' . $str],
             'bank_code' => ['required', 'unique:banks,bank_code' . $str],
-            'address_line1' => ['required'],
-            'address_line2' => 'required',
-            'city' => ['required', 'max:30'],
             'country' => ['required', 'max:3'],
-            'postcode' => ['required'],
-        ];
+           ];
 
     }
 

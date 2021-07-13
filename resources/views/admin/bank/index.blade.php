@@ -19,7 +19,7 @@
                 </div>
             </form>
         </div>
-        <div class="pull-right"><a href="{{route('bank.create')}}" class="btn btn-primary">Create Bank</a></div>
+        <div class="pull-right"><a href="{{route('bank.create')}}" class="btn btn-success">Create Bank</a></div>
     </div>
 
     <div class="module-body table">
@@ -30,6 +30,7 @@
                 <th>Sr.No</th>
                 <th>Bank Name</th>
                 <th>Bank Code</th>
+                <th>Logo</th>
                 <th>Address</th>
                 <th>Country</th>
                 <th>Postcode</th>
@@ -40,7 +41,7 @@
             <tbody>
             @php
 
-            @endphp
+                @endphp
             @forelse($banks as $bank)
                 @php
                     $counter = ($bank->page - 1) * $bank->per_page + 1;
@@ -49,18 +50,23 @@
                     <td>{{$num++}}</td>
                     <td>{{$bank->bank_name}}</td>
                     <td>{{$bank->bank_code}}</td>
+                    <td><img src="{{$bank->logo_uri}}"></td>
                     <td>{{$bank->address_line1}} {{$bank->address_line2}}, {{$bank->city}}</td>
                     <td class="center">{{$bank->country}}</td>
                     <td class="center">{{$bank->postcode}}</td>
                     <td class="center">
-                        <div class="margin-val"><a href="{{route('branch', array("bank_id"=>$bank->id))}}" class="btn btn-primary">View Branches ({{$bank->branches->count()}})</a></div>
-                        <div class="margin-val"><a href="{{route('branch.create', array("bank_id"=>$bank->id))}}" class="btn btn-primary">Create Branch</a></div>
+                        <div class="margin-val"><a href="{{route('branch', array("bank_id"=>$bank->id))}}"
+                                                   class="btn btn-xs btn-info">View Branches
+                                ({{$bank->branches->count()}})</a></div>
+                        <div class="margin-val"><a href="{{route('branch.create', array("bank_id"=>$bank->id))}}"
+                                                   class="btn btn-xs btn-success">Create Branch</a></div>
                     </td>
                     <td class="center">
-                        <div class="margin-val"><a href="{{route('bank.edit', array($bank))}}" class="btn btn-primary">Edit</a></div>
-                        <div class="margin-val"><a href="{{route('bank.delete', array($bank))}}" class="btn btn-danger">Delete</a></div>
+                        <div class="margin-val"><a href="{{route('bank.edit', array($bank))}}"
+                                                   class="btn btn-xs btn-primary">Edit</a></div>
+                        <!--<div class="margin-val"><a href="{{route('bank.delete', array($bank))}}"
+                                                   class="btn btn-xs btn-danger">Delete</a></div>-->
                     </td>
-
                 </tr>
             @empty
                 <tr class="odd gradeX">
