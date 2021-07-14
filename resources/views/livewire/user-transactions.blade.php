@@ -1,18 +1,3 @@
-@extends('layouts.user')
-
-@section('content')
-
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-    <div class="module-body clearfix">
-        <div class="pull-left">
-
-        </div>
-    </div>
-
 
     <div class="module-body table">
         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-condensed"
@@ -66,5 +51,3 @@
 
     </div>
 
-
-@endsection
